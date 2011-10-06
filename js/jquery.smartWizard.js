@@ -183,7 +183,7 @@
                     var curStep = steps.eq(curStepIdx);
                     if(stepIdx != curStepIdx){
                       if($.isFunction(options.onLeaveStep)) {
-                        if(!options.onLeaveStep.call(this,$(curStep))){
+                        if(!options.onLeaveStep.call(this,$(curStep), stepIdx+1)){
                           return false;
                         }
                       }
@@ -248,7 +248,7 @@
                    $(selStep, obj).attr("isDone",1);
                    adjustButton();
                    if($.isFunction(options.onShowStep)) {
-                      if(!options.onShowStep.call(this,$(selStep))){
+                      if(!options.onShowStep.call(this,$(selStep),$(curStep).attr('rel'))){
                         return false;
                       }
                    } 
