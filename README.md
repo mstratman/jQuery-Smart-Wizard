@@ -7,7 +7,7 @@ http://creativecommons.org/licenses/by-sa/3.0/
 
 ## Getting Started
 
-## Basic Usage:
+Basic Usage:
 
 ```javascript
 $('#wizard').smartWizard();
@@ -16,25 +16,25 @@ $('#wizard').smartWizard();
 Using with option parameters:
 
 ```javascript
-    $('#wizard').smartWizard({
-      // Properties
-        selected: 0,  // Selected Step, 0 = first step   
-        keyNavigation: true, // Enable/Disable key navigation(left and right keys are used if enabled)
-        enableAllSteps: false,  // Enable/Disable all steps on first load
-        transitionEffect: 'fade', // Effect on navigation, none/fade/slide/slideleft
-        contentURL:null, // specifying content url enables ajax content loading
-        contentCache:true, // cache step contents, if false content is fetched always from ajax url
-        cycleSteps: false, // cycle step navigation
-        enableFinishButton: false, // makes finish button enabled always
-        errorSteps:[],    // array of step numbers to highlighting as error steps
-        labelNext:'Next', // label for Next button
-        labelPrevious:'Previous', // label for Previous button
-        labelFinish:'Finish',  // label for Finish button        
-      // Events
-        onLeaveStep: null, // triggers when leaving a step
-        onShowStep: null,  // triggers when showing a step
-        onFinish: null  // triggers when Finish button is clicked
-    }); 
+$('#wizard').smartWizard({
+  // Properties
+    selected: 0,  // Selected Step, 0 = first step   
+    keyNavigation: true, // Enable/Disable key navigation(left and right keys are used if enabled)
+    enableAllSteps: false,  // Enable/Disable all steps on first load
+    transitionEffect: 'fade', // Effect on navigation, none/fade/slide/slideleft
+    contentURL:null, // specifying content url enables ajax content loading
+    contentCache:true, // cache step contents, if false content is fetched always from ajax url
+    cycleSteps: false, // cycle step navigation
+    enableFinishButton: false, // makes finish button enabled always
+    errorSteps:[],    // array of step numbers to highlighting as error steps
+    labelNext:'Next', // label for Next button
+    labelPrevious:'Previous', // label for Previous button
+    labelFinish:'Finish',  // label for Finish button        
+  // Events
+    onLeaveStep: null, // triggers when leaving a step
+    onShowStep: null,  // triggers when showing a step
+    onFinish: null  // triggers when Finish button is clicked
+}); 
 ```
 
 Parameters and Events are describing on the table below.
@@ -60,9 +60,9 @@ Make sure the paths to the files are correct with your working environment.
 
 ### Step 2: The JavaScript
 
-Inititialize the Smart Wizard, copy and paste the below lines inside the head tag (<head> </head>) of your page
+Inititialize the Smart Wizard, copy and paste the below lines inside the head tag (`<head> </head>`) of your page
 
-```
+```script
 <script type="text/javascript">
   $(document).ready(function() {
       // Initialize Smart Wizard
@@ -76,7 +76,7 @@ Inititialize the Smart Wizard, copy and paste the below lines inside the head ta
 Finally the html, below shows the HTML markup for the Smart Wizard, You can customize it by including your on contents for each steps. 
 Copy and paste the below html inside the body tag (`<body></body>`) of your page.
 
-```
+```html
 <div id="wizard" class="swMain">
   <ul>
     <li><a href="#step-1">
@@ -135,7 +135,7 @@ To load the content via ajax call you need to specify the property "*contentURL*
 
 example:
 
-```
+```html
 <script type="text/javascript">
   $(document).ready(function() {
       // Initialize Smart Wizard with ajax content load
@@ -149,14 +149,14 @@ When a step got focus the SmartWizard will post the step number to this contentU
 To get the step number in php:
 
 ```php
-    $step_number = $_REQUEST["step_number"];
+$step_number = $_REQUEST["step_number"];
 ```
 
 By default the SmartWizard will fetch the step content only on the first focus of the step, and cache the content and use it on the further focus of that step. But you can turn off the content cache by specifying the property "*contentCache*" to false. 
 
 example:
 
-```
+```html
 <script type="text/javascript">
   $(document).ready(function() {
       // Initialize Smart Wizard with ajax content load and cache disabled
@@ -176,7 +176,7 @@ Smart Wizard 2.0 does not have in-built form validation, but you can call you ow
 
 example:
 
-```
+```html
 <script type="text/javascript">
 $(document).ready(function(){
     // Smart Wizard         
@@ -221,7 +221,7 @@ Please see the step validation demo and *smartwizard2-validation.php* in the sou
 
 Highlighting error steps in Smart Wizard is easy
 
-```
+```javascript
 $('#wizard').smartWizard('setError',{stepnum:3,iserror:true});
 ```
 
@@ -232,7 +232,7 @@ It takes two arguments
 
 example:
 
-```
+```html
 <script type="text/javascript">
     $(document).ready(function() {
         // Initialize Smart Wizard
@@ -249,13 +249,13 @@ example:
 
 An in-built message box is available with Smart Wizard 2.0 and you can call it as like below
 
-```
+```javascript
 $('#wizard').smartWizard('showMessage','Hello! World');
 ```
 
 example:
 
-```
+```html
 <script type="text/javascript">
     $(document).ready(function() {
         // Initialize Smart Wizard
@@ -280,13 +280,13 @@ example:
         <th>Default Value</th>
     </tr>
     <tr>
-        <td>**selected**</td>
+        <td><strong>selected</strong></td>
         <td>specify the selected step</td>
         <td>integer</td>
         <td>0</td>
     </tr>
     <tr>
-        <td>**keyNavigation**</td>
+        <td><strong>keyNavigation</strong></td>
         <td>
             enable/disable key navigation.
             <br />
@@ -300,7 +300,7 @@ example:
         <td>true</td>
     </tr>
     <tr>
-        <td>**enableAllSteps**</td>
+        <td><strong>enableAllSteps</strong></td>
         <td>Enable/Disable all steps on first load</td>
         <td>
             true = enabled 
@@ -310,19 +310,19 @@ example:
         <td>false</td>
     </tr>
     <tr>
-        <td>**transitionEffect**</td>
+        <td><strong>transitionEffect</strong></td>
         <td>Animation effect on step navigation</td>
         <td>none/fade/slide/slideleft</td>
         <td>fade</td>
     </tr>
     <tr>
-        <td>**contentURL**</td>
+        <td><strong>contentURL</strong></td>
         <td>Setting this property will enable ajax content loading, setting null will disable ajax contents</td>
         <td>null or a valid url</td>
         <td>null</td>
     </tr>
     <tr>
-        <td>**contentCache**</td>
+        <td><strong>contentCache</strong></td>
         <td>This property will enable caching of the content on ajax content mode. So the contents are fetched from the url only on first load of the step</td>
         <td>
             true = enabled
@@ -332,7 +332,7 @@ example:
         <td>true</td>
     </tr>
     <tr>
-        <td>**cycleSteps**</td>
+        <td><strong>cycleSteps</strong></td>
         <td>This property allows to cycle the navigation of steps</td>
         <td>
             true = enabled
@@ -342,7 +342,7 @@ example:
         <td>false</td>
     </tr>
     <tr>
-        <td>**enableFinishButton**</td>
+        <td><strong>enableFinishButton</strong></td>
         <td>This property will make the finish button enabled always</td>
         <td>
             true = enabled
@@ -352,7 +352,7 @@ example:
         <td>false</td>
     </tr>
     <tr>
-        <td>**errorSteps**</td>
+        <td><strong>errorSteps</strong></td>
         <td>an array of step numbers to highlighting as error steps</td>
         <td>
             array of integers
@@ -362,19 +362,19 @@ example:
         <td>[]</td>
     </tr>
     <tr>
-        <td>**labelNext**</td>
+        <td><strong>labelNext</strong></td>
         <td>Label for Next button</td>
         <td>String</td>
         <td>Next</td>
     </tr>
     <tr>
-        <td>**labelPrevious**</td>
+        <td><strong>labelPrevious</strong></td>
         <td>Label for Previous button</td>
         <td>String</td>
         <td>Previous</td>
     </tr>
     <tr>
-        <td>**labelFinish**</td>
+        <td><strong>labelFinish</strong></td>
         <td>Label for Finish button</td>
         <td>String</td>
         <td>Finish</td>
@@ -390,7 +390,7 @@ example:
         <th>Parameters</th>
     </tr>
     <tr>
-        <td>**onLeaveStep**</td>
+        <td><strong>onLeaveStep</strong></td>
         <td>
             Triggers when leaving a step.
             <br />
@@ -405,7 +405,7 @@ example:
         </td>
     </tr>
     <tr>
-        <td>**onShowStep**</td>
+        <td><strong>onShowStep</strong></td>
         <td>Triggers when showing a step.</td>
         <td>
             <strong>Object</strong>: object of the step anchor element.
@@ -415,7 +415,7 @@ example:
         </td>
     </tr>
     <tr>
-        <td>**onFinish**</td>
+        <td><strong>onFinish</strong></td>
         <td>
             Triggers when the Finish button is clicked.
             <br />
