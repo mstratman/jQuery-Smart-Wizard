@@ -62,7 +62,7 @@ Make sure the paths to the files are correct with your working environment.
 
 Inititialize the Smart Wizard, copy and paste the below lines inside the head tag (`<head> </head>`) of your page
 
-```script
+```javascript
 <script type="text/javascript">
   $(document).ready(function() {
       // Initialize Smart Wizard
