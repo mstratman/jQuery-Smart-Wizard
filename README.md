@@ -478,5 +478,15 @@ Here are the available methods:
         <td><strong>Integer</strong> - the step number to load</td>
         <td>Load the specified step.</td>
     </tr>
+    <tr>
+        <td><strong>enableStep</strong></td>
+        <td><strong>Integer</strong> - the step number to enable</td>
+        <td>Enable the specified step.</td>
+    </tr>
+    <tr>
+        <td><strong>disable</strong></td>
+        <td><strong>Integer</strong> - the step number to disable</td>
+        <td>Disable the specified step.</td>
+    </tr>
 </table>
  

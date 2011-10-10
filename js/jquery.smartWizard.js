@@ -172,16 +172,16 @@ function SmartWizard(target, options) {
             }
         }
         $this.elmStepContainer.height($($(selStep, $this.target).attr("href"), $this.target).outerHeight());
+        var prevCurStepIdx = $this.curStepIdx;
+        $this.curStepIdx =  stepIdx;
         if ($this.options.transitionEffect == 'slide'){
             $($(curStep, $this.target).attr("href"), $this.target).slideUp("fast",function(e){
                 $($(selStep, $this.target).attr("href"), $this.target).slideDown("fast");
-                $this.curStepIdx =  stepIdx;
                 _setupStep($this,curStep,selStep);
             });
         } else if ($this.options.transitionEffect == 'fade'){
             $($(curStep, $this.target).attr("href"), $this.target).fadeOut("fast",function(e){
                 $($(selStep, $this.target).attr("href"), $this.target).fadeIn("fast");
-                $this.curStepIdx =  stepIdx;
                 _setupStep($this,curStep,selStep);
             });
         } else if ($this.options.transitionEffect == 'slideleft'){
@@ -189,7 +189,7 @@ function SmartWizard(target, options) {
             var nextElmLeft1 = null;
             var nextElmLeft = null;
             var curElementLeft = 0;
-            if(stepIdx > $this.curStepIdx){
+            if(stepIdx > prevCurStepIdx){
                 nextElmLeft1 = $this.contentWidth + 10;
                 nextElmLeft2 = 0;
                 curElementLeft = 0 - $($(curStep, $this.target).attr("href"), $this.target).outerWidth();
@@ -198,7 +198,7 @@ function SmartWizard(target, options) {
                 nextElmLeft2 = 0;
                 curElementLeft = 10 + $($(curStep, $this.target).attr("href"), $this.target).outerWidth();
             }
-            if (stepIdx == $this.curStepIdx) {
+            if (stepIdx == prevCurStepIdx) {
                 nextElmLeft1 = $($(selStep, $this.target).attr("href"), $this.target).outerWidth() + 20;
                 nextElmLeft2 = 0;
                 curElementLeft = 0 - $($(curStep, $this.target).attr("href"), $this.target).outerWidth();
@@ -211,13 +211,11 @@ function SmartWizard(target, options) {
             $($(selStep, $this.target).attr("href"), $this.target).css("left",nextElmLeft1);
             $($(selStep, $this.target).attr("href"), $this.target).show();
             $($(selStep, $this.target).attr("href"), $this.target).animate({left:nextElmLeft2},"fast",function(e){
-                $this.curStepIdx =  stepIdx;
                 _setupStep($this,curStep,selStep);
             });
         } else {
             $($(curStep, $this.target).attr("href"), $this.target).hide();
             $($(selStep, $this.target).attr("href"), $this.target).show();
-            $this.curStepIdx =  stepIdx;
             _setupStep($this,curStep,selStep);
         }
         return true;
@@ -296,6 +294,24 @@ function SmartWizard(target, options) {
             _loadContent(this, stepIdx);
         }
     };
+    SmartWizard.prototype.enableStep = function(stepNum) {
+        var stepIdx = stepNum - 1;
+        if (stepIdx == this.curStepIdx || stepIdx < 0 || stepIdx >= this.steps.length) {
+            return false;
+        }
+        var step = this.steps.eq(stepIdx);
+        $(step, this.target).attr("isDone",1);
+        $(step, this.target).removeClass("disabled").removeClass("selected").addClass("done");
+    }
+    SmartWizard.prototype.disableStep = function(stepNum) {
+        var stepIdx = stepNum - 1;
+        if (stepIdx == this.curStepIdx || stepIdx < 0 || stepIdx >= this.steps.length) {
+            return false;
+        }
+        var step = this.steps.eq(stepIdx);
+        $(step, this.target).attr("isDone",0);
+        $(step, this.target).removeClass("done").removeClass("selected").addClass("disabled");
+    }
 
     SmartWizard.prototype.showMessage = function (msg) {
         $('.content', this.msgBox).html(msg);
