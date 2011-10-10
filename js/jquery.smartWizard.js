@@ -320,6 +320,12 @@ function SmartWizard(target, options) {
         $('.content', this.msgBox).html(msg);
         this.msgBox.show();
     }
+    SmartWizard.prototype.showError = function(stepnum) {
+        this.setError(stepnum, true);
+    }
+    SmartWizard.prototype.hideError = function(stepnum) {
+        this.setError(stepnum, false);
+    }
     SmartWizard.prototype.setError = function(stepnum,iserror) {
         if (typeof stepnum == "object") {
             iserror = stepnum.iserror;

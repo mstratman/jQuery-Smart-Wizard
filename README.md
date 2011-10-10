@@ -459,6 +459,21 @@ Here are the available methods:
         <td>Show a message in the action bar</td>
     </tr>
     <tr>
+        <td><strong>showError</strong></td>
+        <td><strong>Integer</strong>: the step number to highlight with an error.</td>
+        <td>This is a convenience wrapper around <em>setError</em>.</td>
+    </tr>
+    <tr>
+        <td><strong>hideError</strong></td>
+        <td><strong>Integer</strong>: the step number to un-highlight with an error.</td>
+        <td>This is a convenience wrapper around <em>setError</em>.</td>
+    </tr>
+    <tr>
+        <td><strong>showMessage</strong></td>
+        <td><strong>String</strong>: the message to show.</td>
+        <td>Show a message in the action bar</td>
+    </tr>
+    <tr>
         <td><strong>setError</strong></td>
         <td><strong>Object</strong>: with keys <em>stepnum</em> and <em>iserror</em>.</td>
         <td>Set or unset error status on a particular step. Passing <em>iserror</em> as true sets the error. Passing in a false value turns off the error.</td>
