@@ -68,7 +68,8 @@ function SmartWizard(target, options) {
         $($this.buttons.finish).click(function() {
             if(!$(this).hasClass('buttonDisabled')){
                 if($.isFunction($this.options.onFinish)) {
-                    if(!$this.options.onFinish.call(this,$($this.steps))){
+                    var context = { fromStep: $this.curStepIdx + 1 };
+                    if(!$this.options.onFinish.call(this,$($this.steps), context)){
                         return false;
                     }
                 }else{
