@@ -185,12 +185,12 @@ $(document).ready(function(){
         onFinish:onFinishCallback
     });
 
-    function leaveAStepCallback(obj){
-        var step_num= obj.attr('rel'); // get the current step number
-        return validateSteps(step_num); // return false to stay on step and true to continue navigation 
+    function leaveAStepCallback(obj, context){
+        alert("Leaving step " + context.fromStep + " to go to step " + context.toStep);
+        return validateSteps(context.fromStep); // return false to stay on step and true to continue navigation 
     }
 
-    function onFinishCallback(){
+    function onFinishCallback(objs, context){
         if(validateAllSteps()){
             $('form').submit();
         }
@@ -401,7 +401,7 @@ example:
             <strong>Object</strong>: object of the step anchor element.
             You can access the step number and step body element using this object.
             <br />
-            <strong>Number</strong>: The step number the user is navigating *to* after leaving this step.
+            <strong>Object</strong>: Context information with keys: <em>fromStep</em> and <em>toStep</em>
         </td>
     </tr>
     <tr>
@@ -411,7 +411,7 @@ example:
             <strong>Object</strong>: object of the step anchor element.
             You can access the step number and step body element using this object.
             <br />
-            <strong>Number</strong>: The step number the user just left, and came to this step from.
+            <strong>Object</strong>: Context information with keys: <em>fromStep</em> and <em>toStep</em>
         </td>
     </tr>
     <tr>
@@ -430,6 +430,7 @@ example:
         </td>
         <td>
             <strong>Object Array</strong>: an array of the object of all the step anchor elements
+            <strong>Object</strong>: Context information with key: <em>fromStep</em> indicating which step the user was on when they clicked the finish button.
         </td>
     </tr>
 </table>
