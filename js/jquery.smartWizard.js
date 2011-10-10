@@ -51,10 +51,10 @@ function SmartWizard(target, options) {
         $this.elmStepContainer.append(allDivs);
         elmActionBar.append($this.loader);
         $this.target.append($this.elmStepContainer);
-        $this.target.append(elmActionBar);
         elmActionBar.append($this.buttons.finish)
                     .append($this.buttons.next)
                     .append($this.buttons.previous);
+        $this.target.append(elmActionBar);
         this.contentWidth = $this.elmStepContainer.width();
 
         $($this.buttons.next).click(function() {
@@ -314,6 +314,7 @@ function SmartWizard(target, options) {
 (function($){
 
 $.fn.smartWizard = function(method) {
+    var args = arguments;
     return this.each(function() {
         var wiz = $(this).data('smartWizard');
         if (typeof method == 'object' || ! method || ! wiz) {
@@ -324,7 +325,7 @@ $.fn.smartWizard = function(method) {
             }
         } else {
             if (typeof SmartWizard.prototype[method] == "function") {
-                return SmartWizard.prototype[method].apply(wiz, Array.prototype.slice.call(arguments, 1));
+                return SmartWizard.prototype[method].apply(wiz, Array.prototype.slice.call(args, 1));
             } else {
                 $.error('Method ' + method + ' does not exist on jQuery.smartWizard');
             }
