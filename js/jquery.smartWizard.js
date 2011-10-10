@@ -290,6 +290,13 @@ function SmartWizard(target, options) {
         _loadContent(this, nextStepIdx);
     };
 
+    SmartWizard.prototype.goToStep = function(stepNum){
+        var stepIdx = stepNum - 1;
+        if (stepIdx >= 0 && stepIdx < this.steps.length) {
+            _loadContent(this, stepIdx);
+        }
+    };
+
     SmartWizard.prototype.showMessage = function (msg) {
         $('.content', this.msgBox).html(msg);
         this.msgBox.show();

@@ -281,7 +281,7 @@ example:
     </tr>
     <tr>
         <td><strong>selected</strong></td>
-        <td>specify the selected step</td>
+        <td>specify the initially-selected step</td>
         <td>integer</td>
         <td>0</td>
     </tr>
@@ -432,6 +432,51 @@ example:
             <strong>Object Array</strong>: an array of the object of all the step anchor elements
             <strong>Object</strong>: Context information with key: <em>fromStep</em> indicating which step the user was on when they clicked the finish button.
         </td>
+    </tr>
+</table>
+
+## Public methods:
+
+Methods can be called by calling `smartWizard("method_name", arguments)`
+
+For example, calling the *showMessage* method to display "Hello, World!" would
+look like this:
+
+```javascript
+$("#your_wizard").smartWizard('showMessage', 'Hello, World!');
+```
+
+Here are the available methods:
+<table>
+    <tr>
+        <th>Method Name</th>
+        <th>Arguments</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><strong>showMessage</strong></td>
+        <td><strong>String</strong>: the message to show.</td>
+        <td>Show a message in the action bar</td>
+    </tr>
+    <tr>
+        <td><strong>setError</strong></td>
+        <td><strong>Object</strong>: with keys <em>stepnum</em> and <em>iserror</em>.</td>
+        <td>Set or unset error status on a particular step. Passing <em>iserror</em> as true sets the error. Passing in a false value turns off the error.</td>
+    </tr>
+    <tr>
+        <td><strong>goForward</strong></td>
+        <td>None</td>
+        <td>Load the next step.</td>
+    </tr>
+    <tr>
+        <td><strong>goBackward</strong></td>
+        <td>None</td>
+        <td>Load the previous step.</td>
+    </tr>
+    <tr>
+        <td><strong>goToStep</strong></td>
+        <td><strong>Integer</strong> - the step number to load</td>
+        <td>Load the specified step.</td>
     </tr>
 </table>
  
