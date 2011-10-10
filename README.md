@@ -484,9 +484,14 @@ Here are the available methods:
         <td>Enable the specified step.</td>
     </tr>
     <tr>
-        <td><strong>disable</strong></td>
+        <td><strong>disableStep</strong></td>
         <td><strong>Integer</strong> - the step number to disable</td>
         <td>Disable the specified step.</td>
+    </tr>
+    <tr>
+        <td><strong>currentStep</strong></td>
+        <td>None</td>
+        <td>Returns the number of the current step.</td>
     </tr>
 </table>
  

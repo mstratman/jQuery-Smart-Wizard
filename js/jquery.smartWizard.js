@@ -312,6 +312,9 @@ function SmartWizard(target, options) {
         $(step, this.target).attr("isDone",0);
         $(step, this.target).removeClass("done").removeClass("selected").addClass("disabled");
     }
+    SmartWizard.prototype.currentStep = function() {
+        return this.curStepIdx + 1;
+    }
 
     SmartWizard.prototype.showMessage = function (msg) {
         $('.content', this.msgBox).html(msg);
@@ -339,7 +342,8 @@ function SmartWizard(target, options) {
 
 $.fn.smartWizard = function(method) {
     var args = arguments;
-    return this.each(function() {
+    var rv = undefined;
+    var allObjs = this.each(function() {
         var wiz = $(this).data('smartWizard');
         if (typeof method == 'object' || ! method || ! wiz) {
             var options = $.extend({}, $.fn.smartWizard.defaults, method || {});
@@ -349,12 +353,18 @@ $.fn.smartWizard = function(method) {
             }
         } else {
             if (typeof SmartWizard.prototype[method] == "function") {
-                return SmartWizard.prototype[method].apply(wiz, Array.prototype.slice.call(args, 1));
+                rv = SmartWizard.prototype[method].apply(wiz, Array.prototype.slice.call(args, 1));
+                return rv;
             } else {
                 $.error('Method ' + method + ' does not exist on jQuery.smartWizard');
             }
         }
     });
+    if (rv === undefined) {
+        return allObjs;
+    } else {
+        return rv;
+    }
 };
 
 // Default Properties and Events
