@@ -234,9 +234,15 @@ function SmartWizard(target, options) {
         _adjustButton($this);
 
         if($.isFunction($this.options.onShowStep)) {
-            var context = { fromStep: $(curStep).attr('rel'), toStep: $(selStep).attr('rel') };
+            var context = { fromStep: parseInt($(curStep).attr('rel')), toStep: parseInt($(selStep).attr('rel')) };
             if(! $this.options.onShowStep.call(this,$(selStep),context)){
                 return false;
+            }
+        }
+        if ($this.options.noForwardJumping) {
+            // +2 == +1 (for index to step num) +1 (for next step)
+            for (var i = $this.curStepIdx + 2; i <= $this.steps.length; i++) {
+                $this.disableStep(i);
             }
         }
     };
@@ -387,6 +393,7 @@ $.fn.smartWizard.defaults = {
     labelNext:'Next',
     labelPrevious:'Previous',
     labelFinish:'Finish',
+    noForwardJumping: false,
     onLeaveStep: null, // triggers when leaving a step
     onShowStep: null,  // triggers when showing a step
     onFinish: null  // triggers when Finish button is clicked

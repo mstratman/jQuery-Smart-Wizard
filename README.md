@@ -30,6 +30,7 @@ $('#wizard').smartWizard({
     labelNext:'Next', // label for Next button
     labelPrevious:'Previous', // label for Previous button
     labelFinish:'Finish',  // label for Finish button        
+    noForwardJumping:false,
   // Events
     onLeaveStep: null, // triggers when leaving a step
     onShowStep: null,  // triggers when showing a step
@@ -378,6 +379,15 @@ example:
         <td>Label for Finish button</td>
         <td>String</td>
         <td>Finish</td>
+    </tr>
+    <tr>
+        <td><strong>noForwardJumping</strong></td>
+        <td>If true, automatically disable all steps following the current step.
+        <br />
+        <br />
+        e.g. If I am on step 4, and click step 1, steps 2-4 will be disabled and I cannot jump back to 3 or 4, and can only proceed "next" to step 2.</td>
+        <td>Boolean</td>
+        <td>false</td>
     </tr>
 </table>
  
