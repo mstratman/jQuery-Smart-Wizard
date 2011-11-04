@@ -469,6 +469,11 @@ Here are the available methods:
         <td>Show a message in the action bar</td>
     </tr>
     <tr>
+        <td><strong>hideMessage</strong></td>
+        <td>None</td>
+        <td>Hide the message in the action bar</td>
+    </tr>
+    <tr>
         <td><strong>showError</strong></td>
         <td><strong>Integer</strong>: the step number to highlight with an error.</td>
         <td>This is a convenience wrapper around <em>setError</em>.</td>
@@ -477,11 +482,6 @@ Here are the available methods:
         <td><strong>hideError</strong></td>
         <td><strong>Integer</strong>: the step number to un-highlight with an error.</td>
         <td>This is a convenience wrapper around <em>setError</em>.</td>
-    </tr>
-    <tr>
-        <td><strong>showMessage</strong></td>
-        <td><strong>String</strong>: the message to show.</td>
-        <td>Show a message in the action bar</td>
     </tr>
     <tr>
         <td><strong>setError</strong></td>

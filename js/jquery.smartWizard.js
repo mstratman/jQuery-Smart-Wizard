@@ -326,6 +326,9 @@ function SmartWizard(target, options) {
         $('.content', this.msgBox).html(msg);
         this.msgBox.show();
     }
+    SmartWizard.prototype.hideMessage = function () {
+        this.msgBox.fadeOut("normal");
+    }
     SmartWizard.prototype.showError = function(stepnum) {
         this.setError(stepnum, true);
     }
