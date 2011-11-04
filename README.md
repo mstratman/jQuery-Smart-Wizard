@@ -40,7 +40,7 @@ $('#wizard').smartWizard({
 
 Parameters and Events are describing on the table below.
 
-## Installing Smart Wizard 2.0
+## Installing Smart Wizard 3
 
 ### Step 1: Include Files
 
@@ -56,7 +56,7 @@ Make sure the paths to the files are correct with your working environment.
 ```html
 <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
 <link href="smart_wizard.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="jquery.smartWizard-2.0.min.js"></script>
+<script type="text/javascript" src="jquery.smartWizard.js"></script>
 ```
 
 ### Step 2: The JavaScript
@@ -173,7 +173,7 @@ Please see the ajax contents demo and following files on the source code to know
 
 ### Input validation
 
-Smart Wizard 2.0 does not have in-built form validation, but you can call you own validation function for each steps or for all steps with the events. Smart Wizard 2.0 has three events (*onLeaveStep*, *onShowStep*, *onFinish*). So you can write your step validation login in "*onLeaveStep*" event and on validation fail you can stay on that step by cancelling that event. Validation logic for all steps can be write on "*onFinish*" event and so you can avoid submitting the form with errors. 
+Smart Wizard 3 does not have in-built form validation, but you can call you own validation function for each steps or for all steps with the events. Smart Wizard 3 has three events (*onLeaveStep*, *onShowStep*, *onFinish*). So you can write your step validation login in "*onLeaveStep*" event and on validation fail you can stay on that step by cancelling that event. Validation logic for all steps can be write on "*onFinish*" event and so you can avoid submitting the form with errors. 
 
 example:
 
@@ -248,7 +248,7 @@ example:
 
 ### Show message inside the wizard
 
-An in-built message box is available with Smart Wizard 2.0 and you can call it as like below
+An in-built message box is available with Smart Wizard 3 and you can call it as like below
 
 ```javascript
 $('#wizard').smartWizard('showMessage','Hello! World');
