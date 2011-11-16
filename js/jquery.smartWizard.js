@@ -149,7 +149,7 @@ function SmartWizard(target, options) {
                         $this.loader.hide();
                         if(res && res.length>0){
                             selStep.data('hasContent',true);
-                            $($(selStep, $this.target).attr("href"), $this).html(res);
+                            $($(selStep, $this.target).attr("href")).html(res);
                             _showStep($this, stepIdx);
                         }
                     }
