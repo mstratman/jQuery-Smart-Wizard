@@ -522,5 +522,14 @@ Here are the available methods:
         <td>None</td>
         <td>Returns the number of the current step.</td>
     </tr>
+    <tr>
+        <td><strong>fixHeight</strong></td>
+        <td>None</td>
+        <td>
+            Adjusts the height of the step contents for the current step.
+            In general you won't need this, but it's useful if you are
+            dynamically setting the contents.
+        </td>
+    </tr>
 </table>
  
