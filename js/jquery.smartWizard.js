@@ -348,6 +348,20 @@ function SmartWizard(target, options) {
         }
     }
 
+    SmartWizard.prototype.fixHeight = function(){
+        var height = 0;
+
+        var selStep = this.steps.eq(this.curStepIdx);
+        var stepContainer = $($(selStep, this.target).attr("href"), this.target);
+        stepContainer.children().each(function() {
+            height += $(this).outerHeight();
+        });
+
+        // These values (5 and 20) are experimentally chosen.
+        stepContainer.height(height + 5);
+        this.elmStepContainer.height(height + 20);
+    }
+
     _init(this);
 };
 
