@@ -252,20 +252,38 @@ function SmartWizard(target, options) {
         if (! $this.options.cycleSteps){
             if (0 >= $this.curStepIdx) {
                 $($this.buttons.previous).addClass("buttonDisabled");
+				if ($this.options.hideButtonsOnDisabled) {
+                    $($this.buttons.previous).hide();
+                }
             }else{
                 $($this.buttons.previous).removeClass("buttonDisabled");
+                if ($this.options.hideButtonsOnDisabled) {
+                    $($this.buttons.previous).show();
+                }
             }
             if (($this.steps.length-1) <= $this.curStepIdx){
                 $($this.buttons.next).addClass("buttonDisabled");
+                if ($this.options.hideButtonsOnDisabled) {
+                    $($this.buttons.next).hide();
+                }
             }else{
                 $($this.buttons.next).removeClass("buttonDisabled");
+                if ($this.options.hideButtonsOnDisabled) {
+                    $($this.buttons.next).show();
+                }
             }
         }
         // Finish Button
         if (! $this.steps.hasClass('disabled') || $this.options.enableFinishButton){
             $($this.buttons.finish).removeClass("buttonDisabled");
+            if ($this.options.hideButtonsOnDisabled) {
+                $($this.buttons.finish).show();
+            }
         }else{
             $($this.buttons.finish).addClass("buttonDisabled");
+            if ($this.options.hideButtonsOnDisabled) {
+                $($this.buttons.finish).hide();
+            }
         }
     };
 
@@ -407,6 +425,7 @@ $.fn.smartWizard.defaults = {
     contentCache:true, // cache step contents, if false content is fetched always from ajax url
     cycleSteps: false, // cycle step navigation
     enableFinishButton: false, // make finish button enabled always
+	hideButtonsOnDisabled: false, // when the previous/next/finish buttons are disabled, hide them instead?
     errorSteps:[],    // Array Steps with errors
     labelNext:'Next',
     labelPrevious:'Previous',
