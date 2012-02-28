@@ -30,6 +30,7 @@ $('#wizard').smartWizard({
     contentCache:true, // cache step contents, if false content is fetched always from ajax url
     cycleSteps: false, // cycle step navigation
     enableFinishButton: false, // makes finish button enabled always
+	hideButtonsOnDisabled: false, // when the previous/next/finish buttons are disabled, hide them instead
     errorSteps:[],    // array of step numbers to highlighting as error steps
     labelNext:'Next', // label for Next button
     labelPrevious:'Previous', // label for Previous button
@@ -349,6 +350,16 @@ example:
     <tr>
         <td><strong>enableFinishButton</strong></td>
         <td>This property will make the finish button enabled always</td>
+        <td>
+            true = enabled
+            <br />
+            false= disabled
+        </td>
+        <td>false</td>
+    </tr>
+    <tr>
+        <td><strong>hideButtonsOnDisabled</strong></td>
+        <td>This property will hide the disabled buttons instead of just disabling them</td>
         <td>
             true = enabled
             <br />
