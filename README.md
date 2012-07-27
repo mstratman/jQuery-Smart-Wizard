@@ -27,6 +27,7 @@ $('#wizard').smartWizard({
     enableAllSteps: false,  // Enable/Disable all steps on first load
     transitionEffect: 'fade', // Effect on navigation, none/fade/slide/slideleft
     contentURL:null, // specifying content url enables ajax content loading
+    contentURLData:null, // override ajax query parameters
     contentCache:true, // cache step contents, if false content is fetched always from ajax url
     cycleSteps: false, // cycle step navigation
     enableFinishButton: false, // makes finish button enabled always
@@ -326,6 +327,12 @@ example:
         <td>Setting this property will enable ajax content loading, setting null will disable ajax contents</td>
         <td>null or a valid url</td>
         <td>null</td>
+     <tr>
+        <td><strong>contentURLData</strong></td>
+        <td>with ContentURL set, use this property to override the ajax query parameters used when loading contents</td>
+        <td>null or a function that takes the new step number and returns an object to override ajax parameters</td>
+        <td>null</td>
+    </tr>
     </tr>
     <tr>
         <td><strong>contentCache</strong></td>

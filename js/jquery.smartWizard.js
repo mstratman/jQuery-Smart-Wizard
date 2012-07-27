@@ -129,13 +129,14 @@ function SmartWizard(target, options) {
     var _loadContent = function($this, stepIdx) {
         var selStep = $this.steps.eq(stepIdx);
         var ajaxurl = $this.options.contentURL;
+        var ajaxurl_data = $this.options.contentURLData;
         var hasContent = selStep.data('hasContent');
         var stepNum = stepIdx+1;
         if (ajaxurl && ajaxurl.length>0) {
             if ($this.options.contentCache && hasContent) {
                 _showStep($this, stepIdx);
             } else {
-                $.ajax({
+                var ajax_args = {
                     url: ajaxurl,
                     type: "POST",
                     data: ({step_number : stepNum}),
@@ -154,7 +155,11 @@ function SmartWizard(target, options) {
                             _showStep($this, stepIdx);
                         }
                     }
-                });
+                };
+                if (ajaxurl_data) {
+                    ajax_args = $.extend(ajax_args, ajaxurl_data(stepNum));
+                }
+                $.ajax(ajax_args);
             }
         }else{
             _showStep($this,stepIdx);
