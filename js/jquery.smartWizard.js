@@ -1,5 +1,5 @@
 /*
- * SmartWizard 3.3.0 plugin
+ * SmartWizard 3.3.1 plugin
  * jQuery Wizard control Plugin
  * by Dipu
  *
@@ -15,7 +15,7 @@ function SmartWizard(target, options) {
     this.target       = target;
     this.options      = options;
     this.curStepIdx   = options.selected;
-    this.steps        = $("ul > li > a", target); // Get all anchors in this array
+    this.steps        = $(target).children("ul").children("li").children("a"); // Get all anchors
     this.contentWidth = 0;
     this.msgBox = $('<div class="msgBox"><div class="content"></div><a href="#" class="close">X</a></div>');
     this.elmStepContainer = $('<div></div>').addClass("stepContainer");
