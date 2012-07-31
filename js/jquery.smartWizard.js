@@ -1,5 +1,5 @@
 /*
- * SmartWizard 3.2.0 plugin
+ * SmartWizard 3.3.0 plugin
  * jQuery Wizard control Plugin
  * by Dipu
  *
