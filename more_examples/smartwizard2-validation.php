@@ -149,16 +149,7 @@
 </head><body>
 
 <div class="demoHead">   
-  <h1>Smart Wizard 2.0 - a javascript jQuery wizard control plugin</h1>
   <h2>Step Validation Example</h2>
-  <br />
-  <a href="index.htm" class="btn">Basic Example</a>
-  <a href="smartwizard2-ajax.htm" class="btn">Ajax Contents</a>
-  <a href="smartwizard2-validation.php" class="selected">Step Validation</a>  
-  <a href="smartwizard2-multiple.htm" class="btn">Multiple Wizard</a>
-  <a href="smartwizard2-vertical.htm" class="btn">Vertical Style</a>
-  <a href="http://techlaboratory.net/products.php?product=smartwizard" class="btn">Go Home</a>
-  <a href="http://techlaboratory.net/products.php?product=smartwizard&action=2" class="btn">Documentation</a>
 </div>
 
 <table align="center" border="0" cellpadding="0" cellspacing="0">
