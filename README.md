@@ -11,6 +11,8 @@ http://creativecommons.org/licenses/by-sa/3.0/
 
 ## Getting Started
 
+To see some examples, please visit http://mstratman.github.com/jQuery-Smart-Wizard/
+
 Basic Usage:
 
 ```javascript
