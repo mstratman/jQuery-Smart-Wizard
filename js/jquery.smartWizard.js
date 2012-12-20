@@ -145,7 +145,7 @@ function SmartWizard(target, options) {
             } else {
                 var ajax_args = {
                     url: ajaxurl,
-                    type: "POST",
+                    type: $this.options.ajaxType,
                     data: ({step_number : stepNum}),
                     dataType: "text",
                     beforeSend: function(){
@@ -441,6 +441,7 @@ $.fn.smartWizard.defaults = {
     labelPrevious:'Previous',
     labelFinish:'Finish',
     noForwardJumping: false,
+    ajaxType: "POST",
     onLeaveStep: null, // triggers when leaving a step
     onShowStep: null,  // triggers when showing a step
     onFinish: null  // triggers when Finish button is clicked
