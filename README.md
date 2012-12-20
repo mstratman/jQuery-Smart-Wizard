@@ -37,6 +37,7 @@ $('#wizard').smartWizard({
     labelPrevious:'Previous', // label for Previous button
     labelFinish:'Finish',  // label for Finish button        
     noForwardJumping:false,
+    ajaxType: 'POST',
   // Events
     onLeaveStep: null, // triggers when leaving a step
     onShowStep: null,  // triggers when showing a step
@@ -410,6 +411,12 @@ example:
         e.g. If I am on step 4, and click step 1, steps 2-4 will be disabled and I cannot jump back to 3 or 4, and can only proceed "next" to step 2.</td>
         <td>Boolean</td>
         <td>false</td>
+    </tr>
+    <tr>
+        <td><strong>ajaxType</strong></td>
+        <td>The "type" parameter for ajax requests.</td>
+        <td>String</td>
+        <td>POST</td>
     </tr>
 </table>
  
