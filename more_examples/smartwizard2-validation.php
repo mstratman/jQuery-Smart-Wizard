@@ -61,6 +61,7 @@
           $('#wizard').smartWizard('showMessage','Please correct the errors in step'+step+ ' and click next.');
           $('#wizard').smartWizard('setError',{stepnum:step,iserror:true});         
         }else{
+          $('#wizard').smartWizard('hideMessage');
           $('#wizard').smartWizard('setError',{stepnum:step,iserror:false});
         }
       }
@@ -72,6 +73,7 @@
           $('#wizard').smartWizard('showMessage','Please correct the errors in step'+step+ ' and click next.');
           $('#wizard').smartWizard('setError',{stepnum:step,iserror:true});         
         }else{
+          $('#wizard').smartWizard('hideMessage');
           $('#wizard').smartWizard('setError',{stepnum:step,iserror:false});
         }
       }
