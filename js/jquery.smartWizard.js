@@ -203,7 +203,7 @@ function SmartWizard(target, options) {
             var nextElmLeft = null;
             var curElementLeft = 0;
             if(stepIdx > prevCurStepIdx){
-                nextElmLeft1 = $this.contentWidth + 10;
+                nextElmLeft1 = $this.elmStepContainer.width() + 10;
                 nextElmLeft2 = 0;
                 curElementLeft = 0 - _step($this, curStep).outerWidth();
             } else {
