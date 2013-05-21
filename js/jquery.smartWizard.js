@@ -390,6 +390,20 @@ function SmartWizard(target, options) {
         stepContainer.height(height + 5);
         this.elmStepContainer.height(height + 20);
     }
+    
+    SmartWizard.prototype.setFinishButton = function(show){
+        if (show){
+            $(this.buttons.finish).removeClass("buttonDisabled");
+            if ($(this.options.hideButtonsOnDisabled)) {
+                $(this.buttons.finish).show();
+            }
+        }else{
+            $(this.buttons.finish).addClass("buttonDisabled");
+            if ($(this.options.hideButtonsOnDisabled)) {
+                $(this.buttons.finish).hide();
+            }
+        }
+    };
 
     _init(this);
 };
