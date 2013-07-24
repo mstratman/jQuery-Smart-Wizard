@@ -383,7 +383,9 @@ function SmartWizard(target, options) {
         var selStep = this.steps.eq(this.curStepIdx);
         var stepContainer = _step(this, selStep);
         stepContainer.children().each(function() {
-            height += $(this).outerHeight();
+            if($(this).is(':visible')) {
+                 height += $(this).outerHeight();
+            }
         });
 
         // These values (5 and 20) are experimentally chosen.
