@@ -63,7 +63,7 @@ To include the files copy and paste the below lines inside the head tag (`<head>
 Make sure the paths to the files are correct with your working environment.
 
 ```html
-<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jquery-2.0.0.min.js"></script>
 <link href="smart_wizard.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="jquery.smartWizard.js"></script>
 ```
