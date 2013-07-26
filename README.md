@@ -431,6 +431,17 @@ example:
         </td>
         <td>true</td>
      </tr>
+     <tr>
+        <td><strong>autoSteps</strong></td>
+        <td>Automatically add the step buttons</td>
+        <td>
+            true = generate
+            <br />
+            false= don't generate
+        </td>
+        <td>false</td>
+     </tr>
+
 </table>
  
 ## Event Description:

@@ -39,6 +39,22 @@ function SmartWizard(target, options) {
         });
 
         var allDivs = $this.target.children('div');
+        if($this.options.autoSteps){
+            var ul = $("<ul/>");
+            target.prepend(ul)
+
+            // for each div create a li
+            allDivs.each(function(i,e){
+                var title = $(e).first().children(".StepTitle").text();
+                var s = $(e).attr("id")
+
+                var span = $("<span/>").addClass("stepDesc").text(title);
+                var li = $("<li></li>").append($("<a></a>").attr("href", "#" + s).append($("<label></label>").addClass("stepNumber").text(i + 1)).append(span));
+                ul.append(li);
+            });
+            // (re)initialise the steps property
+            $this.steps = $(target).children("ul").children("li").children("a"); // Get all anchors
+        }
         $this.target.children('ul').addClass("anchor");
         allDivs.addClass("content");
 
@@ -451,7 +467,8 @@ function SmartWizard(target, options) {
         onLeaveStep: null, // triggers when leaving a step
         onShowStep: null,  // triggers when showing a step
         onFinish: null,  // triggers when Finish button is clicked
-        includeFinishButton : true   // Add the finish button
+        includeFinishButton : true,   // Add the finish button
+        autoSteps : false // Automatically add the step buttons in the top
     };
 
 })(jQuery);
