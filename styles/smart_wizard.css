@@ -21,8 +21,9 @@
   position: relative;
   margin: 0;
   padding:0;    
-  border: 0px solid #CCC;    
-  overflow:hidden;
+  border: 0px solid #CCC;
+  overflow-x: hidden;
+  overflow-y: scroll;
   clear:both;
   height:300px;
 }
