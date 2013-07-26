@@ -43,7 +43,8 @@ $('#wizard').smartWizard({
   // Events
     onLeaveStep: null, // triggers when leaving a step
     onShowStep: null,  // triggers when showing a step
-    onFinish: null  // triggers when Finish button is clicked
+    onFinish: null,  // triggers when Finish button is clicked
+    includeFinishButton : true   // Add the finish button
 }); 
 ```
 
@@ -420,6 +421,16 @@ example:
         <td>String</td>
         <td>POST</td>
     </tr>
+     <tr>
+        <td><strong>includeFinishButton</strong></td>
+        <td>If true, adds a finish button</td>
+        <td>
+            true = show
+            <br />
+            false= don't show
+        </td>
+        <td>true</td>
+     </tr>
 </table>
  
 ## Event Description:
