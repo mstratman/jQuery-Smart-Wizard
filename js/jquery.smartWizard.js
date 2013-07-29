@@ -47,7 +47,10 @@ function SmartWizard(target, options) {
             allDivs.each(function(i,e){
                 var title = $(e).first().children(".StepTitle").text();
                 var s = $(e).attr("id")
-
+                if (s==undefined){
+                    s = "step-"+(i+1)
+                    $(e).attr("id",s);
+                }
                 var span = $("<span/>").addClass("stepDesc").text(title);
                 var li = $("<li></li>").append($("<a></a>").attr("href", "#" + s).append($("<label></label>").addClass("stepNumber").text(i + 1)).append(span));
                 ul.append(li);
