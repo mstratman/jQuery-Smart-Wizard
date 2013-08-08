@@ -39,7 +39,8 @@ function SmartWizard(target, options) {
         });
 
         var allDivs = $this.target.children('div');
-        if($this.options.autoSteps){
+        // CHeck if ul with steps has been added by user, if not add them
+        if($this.target.children('ul').length == 0 ){
             var ul = $("<ul/>");
             target.prepend(ul)
 
@@ -47,6 +48,7 @@ function SmartWizard(target, options) {
             allDivs.each(function(i,e){
                 var title = $(e).first().children(".StepTitle").text();
                 var s = $(e).attr("id")
+                // if referenced div has no id, add one.
                 if (s==undefined){
                     s = "step-"+(i+1)
                     $(e).attr("id",s);
@@ -470,8 +472,7 @@ function SmartWizard(target, options) {
         onLeaveStep: null, // triggers when leaving a step
         onShowStep: null,  // triggers when showing a step
         onFinish: null,  // triggers when Finish button is clicked
-        includeFinishButton : true,   // Add the finish button
-        autoSteps : false // Automatically add the step buttons in the top
+        includeFinishButton : true   // Add the finish button
     };
 
 })(jQuery);
