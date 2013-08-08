@@ -11,7 +11,7 @@
   display:block;
   margin:0;
   padding:0;
-  border: 0px solid #CCC;
+  border: 0 solid #CCC;
   overflow:visible;
   float:left;
   width:980px;
@@ -21,8 +21,9 @@
   position: relative;
   margin: 0;
   padding:0;    
-  border: 0px solid #CCC;    
-  overflow:hidden;
+  border: 0 solid #CCC;
+  overflow-x: hidden;
+  overflow-y: scroll;
   clear:both;
   height:300px;
 }
@@ -86,20 +87,18 @@
   display:block;
   float:left;
   list-style: none;
-  padding: 0px;  
+  padding: 0;
   margin: 10px 0;      
   clear: both;
-  border: 0px solid #CCCCCC;    
+  border: 0 solid #CCCCCC;
   background: transparent; /*#EEEEEE */
 }
 .swMain ul.anchor li{ 
   position: relative; 
   display:block;
   margin: 0;
-  padding: 0; 
-  padding-left:3px;
-  padding-right: 3px;
-  border: 0px solid #E0E0E0;      
+  padding: 0 3px;
+  border: 0 solid #E0E0E0;
   float: left;
 }
 /* Anchor Element Style */
@@ -107,7 +106,7 @@
   display:block;
   position:relative;
   float:left;
-  margin:0;
+  margin: 5px 0 0 0;
   padding:3px;
   height:60px;
   width:230px;
@@ -122,8 +121,7 @@
   float:left;
   width:30px;
   text-align: center;
-  padding:5px;
-  padding-top:0;
+  padding: 0 5px 5px;
   font: bold 45px Verdana, Arial, Helvetica, sans-serif;
 }
 .swMain ul.anchor li a .stepDesc{
@@ -283,7 +281,7 @@
 }
 .swMain .msgBox .content {
   font: normal 12px Verdana,Arial,Helvetica,sans-serif;
-  padding: 0px;
+  padding: 0;
   float:left;
 }
 .swMain .msgBox .close {
