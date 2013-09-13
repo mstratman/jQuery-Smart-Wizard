@@ -325,6 +325,21 @@ function SmartWizard(target, options) {
     };
 
     /*
+     * Additional buttons can be passed via options
+     * in such format
+     * customButtons: [{ name: 'buttonName', label: 'Label', className: 'ButtonClass', f: callbackFunction}]
+     */
+
+    var _add_custom_buttons = function($this) {
+        var customButtons = $this.options.customButtons;
+        customButtons.forEach(btn) {
+            var new_button = {};
+            new_button[btn.name] = $('<a>'+btn.label+'</a>').attr("href","#").addClass(btn.className);
+            this.buttons.push(new_button);
+        }
+    };
+
+    /*
      * Public methods
      */
 
