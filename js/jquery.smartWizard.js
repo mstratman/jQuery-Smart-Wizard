@@ -329,14 +329,18 @@ function SmartWizard(target, options) {
     /*
      * Additional buttons can be passed via options
      * in such format
-     * customButtons: [{ name: 'buttonName', label: 'Label', className: 'ButtonClass', f: callbackFunction}]
+     * customButtons: [{ name: 'buttonName', label: 'Label', className: 'ButtonClass', prepend: false, f: callbackFunction}]
      */
 
     var _add_custom_buttons = function($this, bar) {
         $this.options.customButtons.forEach(function(btn) {
             var btn_element = $('<a>'+btn.label+'</a>').attr("href","#").addClass(btn.className);
             // adding button to the buttons bar
-            bar.prepend(btn_element);
+            if (btn.prepend) {
+                bar.prepend(btn_element);
+            }else {
+                bar.append(btn_element);
+            }
             // callback function for onClick() event
             btn_element.click(function() {
                 if($.isFunction(btn.f)) {
