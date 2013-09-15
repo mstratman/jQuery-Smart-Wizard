@@ -134,6 +134,8 @@ function SmartWizard(target, options) {
         _prepareSteps($this);
         // Show the first slected step
         _loadContent($this, $this.curStepIdx);
+        // Adding custom Buttons
+        _add_custom_buttons($this, elmActionBar);
     };
 
     var _prepareSteps = function($this) {
@@ -330,12 +332,21 @@ function SmartWizard(target, options) {
      * customButtons: [{ name: 'buttonName', label: 'Label', className: 'ButtonClass', f: callbackFunction}]
      */
 
-    var _add_custom_buttons = function($this) {
-        var customButtons = $this.options.customButtons;
-        customButtons.forEach(function(btn) {
-            var new_button = {};
-            new_button[btn.name] = $('<a>'+btn.label+'</a>').attr("href","#").addClass(btn.className);
-            this.buttons.push(new_button);
+    var _add_custom_buttons = function($this, bar) {
+        $this.options.customButtons.forEach(function(btn) {
+            var btn_element = $('<a>'+btn.label+'</a>').attr("href","#").addClass(btn.className);
+            // adding button to the buttons bar
+            bar.prepend(btn_element);
+            // callback function for onClick() event
+            btn_element.click(function() {
+                if($.isFunction(btn.f)) {
+                    btn.f.call();
+                }else {
+                    return false;
+                }
+                return false;
+            });
+
         });
     };
 
