@@ -332,11 +332,11 @@ function SmartWizard(target, options) {
 
     var _add_custom_buttons = function($this) {
         var customButtons = $this.options.customButtons;
-        customButtons.forEach(btn) {
+        customButtons.forEach(function(btn) {
             var new_button = {};
             new_button[btn.name] = $('<a>'+btn.label+'</a>').attr("href","#").addClass(btn.className);
             this.buttons.push(new_button);
-        }
+        });
     };
 
     /*
@@ -489,7 +489,8 @@ function SmartWizard(target, options) {
         onLeaveStep: null, // triggers when leaving a step
         onShowStep: null,  // triggers when showing a step
         onFinish: null,  // triggers when Finish button is clicked
-        includeFinishButton : true   // Add the finish button
+        includeFinishButton : true,   // Add the finish button
+        customButtons: null // additional buttons passed
     };
 
 })(jQuery);
