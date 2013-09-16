@@ -134,6 +134,8 @@ function SmartWizard(target, options) {
         _prepareSteps($this);
         // Show the first slected step
         _loadContent($this, $this.curStepIdx);
+        // Adding custom Buttons
+        _add_custom_buttons($this, elmActionBar);
     };
 
     var _prepareSteps = function($this) {
@@ -325,6 +327,34 @@ function SmartWizard(target, options) {
     };
 
     /*
+     * Additional buttons can be passed via options
+     * in such format
+     * customButtons: [{ name: 'buttonName', label: 'Label', className: 'ButtonClass', prepend: false, f: callbackFunction}]
+     */
+
+    var _add_custom_buttons = function($this, bar) {
+        $this.options.customButtons.forEach(function(btn) {
+            var btn_element = $('<a>'+btn.label+'</a>').attr("href","#").addClass(btn.className);
+            // adding button to the buttons bar
+            if (btn.prepend) {
+                bar.prepend(btn_element);
+            }else {
+                bar.append(btn_element);
+            }
+            // callback function for onClick() event
+            btn_element.click(function() {
+                if($.isFunction(btn.f)) {
+                    btn.f.call();
+                }else {
+                    return false;
+                }
+                return false;
+            });
+
+        });
+    };
+
+    /*
      * Public methods
      */
 
@@ -474,7 +504,8 @@ function SmartWizard(target, options) {
         onLeaveStep: null, // triggers when leaving a step
         onShowStep: null,  // triggers when showing a step
         onFinish: null,  // triggers when Finish button is clicked
-        includeFinishButton : true   // Add the finish button
+        includeFinishButton : true,   // Add the finish button
+        customButtons: null // additional buttons passed
     };
 
 })(jQuery);

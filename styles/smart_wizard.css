@@ -237,6 +237,23 @@
   -webkit-border-radius: 5px;    
 }
 
+.swMain .releaseButton {
+  display:block;
+  float:right;
+  margin:5px 10px 0 3px;
+  padding:5px;
+  text-decoration: none;
+  text-align: center;
+  font: bold 13px Verdana, Arial, Helvetica, sans-serif;
+  width:100px;
+  color:#FFF;
+  outline-style:none;
+  background-color:   #5A5655;
+  border: 1px solid #5A5655;
+  -moz-border-radius  : 5px;
+  -webkit-border-radius: 5px;
+}
+
 /* Form Styles */
 
 .txtBox {
