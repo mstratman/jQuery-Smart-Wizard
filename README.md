@@ -562,6 +562,14 @@ Here are the available methods:
         <td>Returns the number of the current step.</td>
     </tr>
     <tr>
+        <td><strong>enableFinish</strong></td>
+        <td>Boolean: true<br />
+            true = enabled 
+            false= disabled
+        </td>
+        <td>Returns the status of finish button after change.</td>
+    </tr>
+    <tr>
         <td><strong>fixHeight</strong></td>
         <td>None</td>
         <td>
