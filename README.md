@@ -564,7 +564,10 @@ Here are the available methods:
     <tr>
         <td><strong>enableFinish</strong></td>
         <td>Boolean:
+            <br />
+            <br />
             true = enabled 
+            <br />
             false= disabled
         </td>
         <td>Returns the status of finish button after change.</td>
