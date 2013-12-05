@@ -309,19 +309,7 @@ function SmartWizard(target, options) {
             }
         }
         // Finish Button
-        if ($this.options.includeFinishButton){
-            if (! $this.steps.hasClass('disabled') || $this.options.enableFinishButton){
-                $($this.buttons.finish).removeClass("buttonDisabled");
-                if ($this.options.hideButtonsOnDisabled) {
-                    $($this.buttons.finish).show();
-                }
-            }else{
-                $($this.buttons.finish).addClass("buttonDisabled");
-                if ($this.options.hideButtonsOnDisabled) {
-                    $($this.buttons.finish).hide();
-                }
-            }
-        }
+        $this.enableFinish($this.options.enableFinishButton);
     };
 
     /*
@@ -382,6 +370,27 @@ function SmartWizard(target, options) {
         $('.content', this.msgBox).html(msg);
         this.msgBox.show();
     }
+
+    SmartWizard.prototype.enableFinish = function (enable) {
+        // Controll status of finish button dynamically
+        // just call this with status you want
+        this.options.enableFinishButton = enable;
+        if (this.options.includeFinishButton){
+            if (!this.steps.hasClass('disabled') || this.options.enableFinishButton){
+                $(this.buttons.finish).removeClass("buttonDisabled");
+                if (this.options.hideButtonsOnDisabled) {
+                    $(this.buttons.finish).show();
+                }
+            }else{
+                $(this.buttons.finish).addClass("buttonDisabled");
+                if (this.options.hideButtonsOnDisabled) {
+                    $(this.buttons.finish).hide();
+                }
+            }
+        }
+        return this.options.enableFinishButton;
+    }
+
     SmartWizard.prototype.hideMessage = function () {
         this.msgBox.fadeOut("normal");
     }
