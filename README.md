@@ -563,7 +563,7 @@ Here are the available methods:
     </tr>
     <tr>
         <td><strong>enableFinish</strong></td>
-        <td>Boolean: true<br />
+        <td>Boolean:
             true = enabled 
             false= disabled
         </td>
