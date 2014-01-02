@@ -1,0 +1,18 @@
+{
+  "name": "jQuery-Smart-Wizard",
+  "version": "3.3.1",
+  "homepage": "https://github.com/mstratman/jQuery-Smart-Wizard",
+  "authors": [
+    "(Mark A. Stratman<stratman@gmail.com>)"
+  ],
+  "description": "flexible jQuery plug-in that gives wizard like interface",
+  "main": "http://mstratman.github.com/jQuery-Smart-Wizard/",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
