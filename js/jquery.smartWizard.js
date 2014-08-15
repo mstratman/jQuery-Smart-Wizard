@@ -420,7 +420,7 @@ function SmartWizard(target, options) {
         var stepContainer = _step(this, selStep);
         stepContainer.children().each(function() {
             if($(this).is(':visible')) {
-                 height += $(this).outerHeight();
+                 height += $(this).outerHeight(true);
             }
         });
 
