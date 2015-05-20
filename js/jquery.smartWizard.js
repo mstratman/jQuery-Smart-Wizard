@@ -10,6 +10,8 @@
  * http://www.techlaboratory.net
  * http://tech-laboratory.blogspot.com
  */
+ 
+(function($){
 
 function SmartWizard(target, options) {
     this.target       = target;
@@ -285,17 +287,23 @@ function SmartWizard(target, options) {
 
     var _adjustButton = function($this) {
         if (! $this.options.cycleSteps){
-            if (0 >= $this.curStepIdx) {
-                $($this.buttons.previous).addClass("buttonDisabled");
-                if ($this.options.hideButtonsOnDisabled) {
-                    $($this.buttons.previous).hide();
-                }
-            }else{
-                $($this.buttons.previous).removeClass("buttonDisabled");
-                if ($this.options.hideButtonsOnDisabled) {
-                    $($this.buttons.previous).show();
+            if($this.options.includePreviousButton){
+                if (0 >= $this.curStepIdx) {
+                    $($this.buttons.previous).addClass("buttonDisabled");
+                    if ($this.options.hideButtonsOnDisabled) {
+                        $($this.buttons.previous).hide();
+                    }
+                }else{
+                    $($this.buttons.previous).removeClass("buttonDisabled");
+                    if ($this.options.hideButtonsOnDisabled) {
+                        $($this.buttons.previous).show();
+                    }
                 }
             }
+            else{
+                 $($this.buttons.previous).hide();
+            }
+            
             if (($this.steps.length-1) <= $this.curStepIdx){
                 $($this.buttons.next).addClass("buttonDisabled");
                 if ($this.options.hideButtonsOnDisabled) {
@@ -434,7 +442,7 @@ function SmartWizard(target, options) {
 
 
 
-(function($){
+
 
     $.fn.smartWizard = function(method) {
         var args = arguments;
@@ -483,7 +491,8 @@ function SmartWizard(target, options) {
         onLeaveStep: null, // triggers when leaving a step
         onShowStep: null,  // triggers when showing a step
         onFinish: null,  // triggers when Finish button is clicked
-        includeFinishButton : true   // Add the finish button
+        includeFinishButton : true,   // Add the finish button
+        includePreviousButton: true // Add the prevous button
     };
 
 })(jQuery);
