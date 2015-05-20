@@ -44,7 +44,8 @@ $('#wizard').smartWizard({
     onLeaveStep: null, // triggers when leaving a step
     onShowStep: null,  // triggers when showing a step
     onFinish: null,  // triggers when Finish button is clicked
-    includeFinishButton : true   // Add the finish button
+    includeFinishButton : true,   // Add the finish button
+    includePreviousButton: true // Add the prevous button
 }); 
 ```
 
@@ -431,6 +432,16 @@ example:
         </td>
         <td>true</td>
      </tr>
+     <tr>
+        <td><strong>includePreviousButton</strong></td>
+        <td>If true, adds a previous button</td>
+        <td>
+            true = show
+            <br />
+            false= don't show
+        </td>
+        <td>true</td>
+     </tr>     
 
 </table>
  
