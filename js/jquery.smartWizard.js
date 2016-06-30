@@ -73,13 +73,22 @@ function SmartWizard(target, options) {
         $this.elmStepContainer.append(allDivs);
         elmActionBar.append($this.loader);
         $this.target.append($this.elmStepContainer);
-
-        if ($this.options.includeFinishButton){
-            elmActionBar.append($this.buttons.finish)
+        
+        if($this.options.reverseButtonsOrder){
+            elmActionBar.append($this.buttons.previous)
+                        .append($this.buttons.next);
+            if ($this.options.includeFinishButton){
+                elmActionBar.append($this.buttons.finish)
+            }
         }
-
-        elmActionBar.append($this.buttons.next)
-            .append($this.buttons.previous);
+        else {
+            if ($this.options.includeFinishButton){
+                elmActionBar.append($this.buttons.finish)
+            }
+            elmActionBar.append($this.buttons.next)
+                        .append($this.buttons.previous);
+        }
+        
         $this.target.append(elmActionBar);
         this.contentWidth = $this.elmStepContainer.width();
 
@@ -483,7 +492,8 @@ function SmartWizard(target, options) {
         onLeaveStep: null, // triggers when leaving a step
         onShowStep: null,  // triggers when showing a step
         onFinish: null,  // triggers when Finish button is clicked
-        includeFinishButton : true   // Add the finish button
-    };
+        includeFinishButton : true,   // Add the finish button
+        reverseButtonsOrder: false //show buttons as prev, next and finish    
+};
 
 })(jQuery);
