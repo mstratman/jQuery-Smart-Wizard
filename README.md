@@ -44,7 +44,8 @@ $('#wizard').smartWizard({
     onLeaveStep: null, // triggers when leaving a step
     onShowStep: null,  // triggers when showing a step
     onFinish: null,  // triggers when Finish button is clicked
-    includeFinishButton : true   // Add the finish button
+    includeFinishButton : true,   // Add the finish button
+    reverseButtonsOrder: false //shows buttons ordered as: prev, next and finish    
 }); 
 ```
 
@@ -430,6 +431,16 @@ example:
             false= don't show
         </td>
         <td>true</td>
+     </tr>
+     <tr>
+        <td><strong>reverseButtonsOrder</strong></td>
+        <td>If true, shows buttons ordered as: prev, next, finished</td>
+        <td>
+            true = prev, next, finished
+            <br />
+            false= finished, next, prev
+        </td>
+        <td>false</td>        
      </tr>
 
 </table>

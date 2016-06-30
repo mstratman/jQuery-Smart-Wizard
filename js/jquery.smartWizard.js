@@ -493,7 +493,7 @@ function SmartWizard(target, options) {
         onShowStep: null,  // triggers when showing a step
         onFinish: null,  // triggers when Finish button is clicked
         includeFinishButton : true,   // Add the finish button
-        reverseButtonsOrder: false //show buttons as prev, next and finish    
+        reverseButtonsOrder: false //shows buttons ordered as: prev, next and finish       
 };
 
 })(jQuery);
