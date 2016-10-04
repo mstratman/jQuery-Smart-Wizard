@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Smart Wizard 2 - Step Validation Example - a javascript jQuery wizard control plugin</title>
-<link href="styles/demo_style.css" rel="stylesheet" type="text/css">
+<link href="../styles/demo_style.css" rel="stylesheet" type="text/css">
 
-<link href="styles/smart_wizard.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="js/jquery.smartWizard-2.0.min.js"></script>
+<link href="../styles/smart_wizard.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../js/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" src="../js/jquery.smartWizard-2.0.min.js"></script>
 
 <script type="text/javascript">
    
