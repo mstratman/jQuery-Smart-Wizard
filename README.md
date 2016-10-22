@@ -3,6 +3,8 @@
 Version 3 and later at
 http://mstratman.github.com/jQuery-Smart-Wizard/
 
+*NOTE:*  This is not being actively maintained.
+
 Original version 2 and earlier are from
 http://www.techlaboratory.net/products.php?product=smartwizard
 
