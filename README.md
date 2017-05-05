@@ -45,9 +45,8 @@ $('#wizard').smartWizard({
   // Events
     onLeaveStep: null, // triggers when leaving a step
     onShowStep: null,  // triggers when showing a step
-    onFinish: null,  // triggers when Finish button is clicked
-    includeFinishButton : true,   // Add the finish button
-    reverseButtonsOrder: false //shows buttons ordered as: prev, next and finish    
+    onFinish: null,  // triggers when Finish button is clicked 
+    buttonOrder: ['finish', 'next', 'prev']  // button order, to hide a button remove it from the list
 }); 
 ```
 
@@ -425,24 +424,12 @@ example:
         <td>POST</td>
     </tr>
      <tr>
-        <td><strong>includeFinishButton</strong></td>
-        <td>If true, adds a finish button</td>
+        <td><strong>buttonOrder</strong></td>
+        <td>Defines the display order of the buttons. To hide a button simply remove it from the list.</td>
         <td>
-            true = show
-            <br />
-            false= don't show
+             String[]
         </td>
-        <td>true</td>
-     </tr>
-     <tr>
-        <td><strong>reverseButtonsOrder</strong></td>
-        <td>If true, shows buttons ordered as: prev, next, finished</td>
-        <td>
-            true = prev, next, finished
-            <br />
-            false= finished, next, prev
-        </td>
-        <td>false</td>        
+        <td>['finish', 'next', 'prev']</td>        
      </tr>
 
 </table>

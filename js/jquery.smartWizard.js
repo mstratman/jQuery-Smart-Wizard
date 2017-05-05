@@ -73,20 +73,26 @@ function SmartWizard(target, options) {
         $this.elmStepContainer.append(allDivs);
         elmActionBar.append($this.loader);
         $this.target.append($this.elmStepContainer);
-        
-        if($this.options.reverseButtonsOrder){
-            elmActionBar.append($this.buttons.previous)
-                        .append($this.buttons.next);
-            if ($this.options.includeFinishButton){
-                elmActionBar.append($this.buttons.finish)
+
+        for( var btnIndex in $this.options.buttonOrder)
+        {
+            if(!$this.options.buttonOrder.hasOwnProperty(btnIndex))
+            {
+                continue;
             }
-        }
-        else {
-            if ($this.options.includeFinishButton){
-                elmActionBar.append($this.buttons.finish)
+
+            switch($this.options.buttonOrder[btnIndex])
+            {
+                case 'finish':
+                    elmActionBar.append($this.buttons.finish);
+                    break;
+                case 'next':
+                    elmActionBar.append($this.buttons.next);
+                    break;
+                case 'prev':
+                    elmActionBar.append($this.buttons.previous);
+                    break;
             }
-            elmActionBar.append($this.buttons.next)
-                        .append($this.buttons.previous);
         }
         
         $this.target.append(elmActionBar);
@@ -493,7 +499,8 @@ function SmartWizard(target, options) {
         onShowStep: null,  // triggers when showing a step
         onFinish: null,  // triggers when Finish button is clicked
         includeFinishButton : true,   // Add the finish button
-        reverseButtonsOrder: false //shows buttons ordered as: prev, next and finish       
+        reverseButtonsOrder: false, //shows buttons ordered as: prev, next and finish
+        buttonOrder: ['finish', 'next', 'prev']  // button order, to hide a button remove it from the list
 };
 
 })(jQuery);
