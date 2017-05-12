@@ -73,20 +73,26 @@ function SmartWizard(target, options) {
         $this.elmStepContainer.append(allDivs);
         elmActionBar.append($this.loader);
         $this.target.append($this.elmStepContainer);
-        
-        if($this.options.reverseButtonsOrder){
-            elmActionBar.append($this.buttons.previous)
-                        .append($this.buttons.next);
-            if ($this.options.includeFinishButton){
-                elmActionBar.append($this.buttons.finish)
+
+        for( var btnIndex in $this.options.buttonOrder)
+        {
+            if(!$this.options.buttonOrder.hasOwnProperty(btnIndex))
+            {
+                continue;
             }
-        }
-        else {
-            if ($this.options.includeFinishButton){
-                elmActionBar.append($this.buttons.finish)
+
+            switch($this.options.buttonOrder[btnIndex])
+            {
+                case 'finish':
+                    elmActionBar.append($this.buttons.finish);
+                    break;
+                case 'next':
+                    elmActionBar.append($this.buttons.next);
+                    break;
+                case 'prev':
+                    elmActionBar.append($this.buttons.previous);
+                    break;
             }
-            elmActionBar.append($this.buttons.next)
-                        .append($this.buttons.previous);
         }
         
         $this.target.append(elmActionBar);
@@ -451,7 +457,31 @@ function SmartWizard(target, options) {
         var allObjs = this.each(function() {
             var wiz = $(this).data('smartWizard');
             if (typeof method == 'object' || ! method || ! wiz) {
+
+                // show deprecated message for includeFinishButton  and reverseButtonsOrder options
+                if(method.hasOwnProperty('includeFinishButton') || method.hasOwnProperty('reverseButtonsOrder'))
+                {
+                    console.log("[WARNING] Parameter 'includeFinishButton' and 'reverseButtonsOrder' are " +
+                        "deprecated an will be removed in the next release. Use option 'buttonOrder' instead.");
+                }
+
                 var options = $.extend({}, $.fn.smartWizard.defaults, method || {});
+
+                // handle deprecated reverseButtonsOrder option
+                if(options.reverseButtonsOrder === true)
+                {
+                    options.buttonOrder.reverse()
+                }
+
+                // handle deprecated includeFinishButton option
+                if(options.includeFinishButton === false)
+                {
+                    var index = options.buttonOrder.indexOf('finish');
+                    if (index > -1) {
+                        options.buttonOrder.splice(index, 1);
+                    }
+                }
+
                 if (! wiz) {
                     wiz = new SmartWizard($(this), options);
                     $(this).data('smartWizard', wiz);
@@ -493,7 +523,8 @@ function SmartWizard(target, options) {
         onShowStep: null,  // triggers when showing a step
         onFinish: null,  // triggers when Finish button is clicked
         includeFinishButton : true,   // Add the finish button
-        reverseButtonsOrder: false //shows buttons ordered as: prev, next and finish       
+        reverseButtonsOrder: false, //shows buttons ordered as: prev, next and finish
+        buttonOrder: ['finish', 'next', 'prev']  // button order, to hide a button remove it from the list
 };
 
 })(jQuery);
