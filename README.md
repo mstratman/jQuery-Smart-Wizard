@@ -425,7 +425,7 @@ example:
     </tr>
      <tr>
         <td><strong>includeFinishButton</strong></td>
-        <td>**[DEPRECATED: Will be removed in the next release]** If true, adds a finish button</td>
+        <td><strong>[DEPRECATED: This option will be removed in the next release]</strong> If true, adds a finish button</td>
         <td>
             true = show
             <br />
@@ -435,7 +435,7 @@ example:
      </tr>
      <tr>
         <td><strong>reverseButtonsOrder</strong></td>
-        <td>**[DEPRECATED: Will be removed in the next release]** If true, shows buttons ordered as: prev, next, finished</td>
+        <td><strong>[DEPRECATED: This option will be removed in the next release]</strong> If true, shows buttons ordered as: prev, next, finished</td>
         <td>
             true = prev, next, finished
             <br />
