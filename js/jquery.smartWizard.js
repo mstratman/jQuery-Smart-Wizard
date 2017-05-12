@@ -457,7 +457,31 @@ function SmartWizard(target, options) {
         var allObjs = this.each(function() {
             var wiz = $(this).data('smartWizard');
             if (typeof method == 'object' || ! method || ! wiz) {
+
+                // show deprecated message for includeFinishButton  and reverseButtonsOrder options
+                if(method.hasOwnProperty('includeFinishButton') || method.hasOwnProperty('reverseButtonsOrder'))
+                {
+                    console.log("[WARNING] Parameter 'includeFinishButton' and 'reverseButtonsOrder' are " +
+                        "deprecated an will be removed in the next release. Use option 'buttonOrder' instead.");
+                }
+
                 var options = $.extend({}, $.fn.smartWizard.defaults, method || {});
+
+                // handle deprecated reverseButtonsOrder option
+                if(options.reverseButtonsOrder === true)
+                {
+                    options.buttonOrder.reverse()
+                }
+
+                // handle deprecated includeFinishButton option
+                if(options.includeFinishButton === false)
+                {
+                    var index = options.buttonOrder.indexOf('finish');
+                    if (index > -1) {
+                        options.buttonOrder.splice(index, 1);
+                    }
+                }
+
                 if (! wiz) {
                     wiz = new SmartWizard($(this), options);
                     $(this).data('smartWizard', wiz);
