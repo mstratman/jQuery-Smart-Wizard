@@ -291,8 +291,8 @@ function SmartWizard(target, options) {
             }
         }
         if ($this.options.noForwardJumping) {
-            // +2 == +1 (for index to step num) +1 (for next step)
-            for (var i = $this.curStepIdx + 2; i <= $this.steps.length; i++) {
+            // +2 == +1 (for index to step num) +2 (for the step after the next)
+            for (var i = $this.curStepIdx + 3; i <= $this.steps.length; i++) {
                 $this.disableStep(i);
             }
         }
