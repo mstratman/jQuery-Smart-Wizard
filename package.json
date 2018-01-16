@@ -1,0 +1,29 @@
+{
+  "name": "jquery-smart-wizard",
+  "version": "3.3.1",
+  "description": "flexible jQuery plug-in that gives wizard like interface",
+  "main": "js/jquery.smartWizard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mstratman/jQuery-Smart-Wizard.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "smartwizard"
+  ],
+  "authors": [
+    "Dipu Raj <hello@techlaboratory.net>",
+    "Mark A. Stratman <stratman@gmail.com>"
+  ],
+  "contributors": [
+    "Alexis Caffa <alexiscaffa@hotmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mstratman/jQuery-Smart-Wizard/issues"
+  },
+  "homepage": "https://github.com/mstratman/jQuery-Smart-Wizard#readme"
+}

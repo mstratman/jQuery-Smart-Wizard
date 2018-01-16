@@ -52,6 +52,15 @@ $('#wizard').smartWizard({
 
 Parameters and Events are describing on the table below.
 
+## Downloading Smart Wizard 3
+
+### NodeJS npm
+
+``` bash
+npm install git://github.com/mstratman/jQuery-Smart-Wizard.git --save-dev
+```
+
+
 ## Installing Smart Wizard 3
 
 ### Step 1: Include Files
