@@ -224,7 +224,7 @@ function SmartWizard(target, options) {
                 }
             }
         }
-        $this.elmStepContainer.height(_step($this, selStep).outerHeight());
+        // $this.elmStepContainer.height(_step($this, selStep).outerHeight()); 
         var prevCurStepIdx = $this.curStepIdx;
         $this.curStepIdx =  stepIdx;
         if ($this.options.transitionEffect == 'slide'){
