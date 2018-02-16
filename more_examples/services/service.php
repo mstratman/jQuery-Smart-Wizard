@@ -1,4 +1,5 @@
-<?
+<?php 
+
   $action = $_REQUEST["action"];
   switch($action){
       case "1":
@@ -10,7 +11,7 @@
 
  function getContent(){
    //sleep(1); 
-   $step_number = $_REQUEST["step_number"]; 
+   $step_number = $_POST["step_number"]; 
    $html = '<h2 class="StepTitle">Step '.$step_number.' Content</h2>';
    if($step_number == 1){
       $html .='<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
